@@ -4,10 +4,32 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// import bootstrap
+import "bootstrap/dist/css/bootstrap.min.css"
+import "jquery/dist/jquery.min.js"
+import "popper.js/dist/umd/popper.min.js"
+import "bootstrap/dist/js/bootstrap.min.js"
+
+// import sweetalert2
+import "sweetalert2/dist/sweetalert2.js"
+import "sweetalert2/dist/sweetalert2.css"
+
+
+// setup redux 
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+import {rootReducer} from "./redux/reducers/rootReducer"
+
+
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
